@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Reject — Privacy Policy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0f;
+            color: #c8c8d0;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .header img {
+            width: 72px;
+            height: 72px;
+            margin-bottom: 16px;
+            border-radius: 16px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            color: #6b6b7b;
+        }
+
+        .header .date {
+            font-size: 12px;
+            color: #4b4b5b;
+            margin-top: 8px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #e0e0e8;
+            margin: 36px 0 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #d0d0d8;
+            margin: 24px 0 8px;
+        }
+
+        p {
+            margin-bottom: 14px;
+            font-size: 14.5px;
+        }
+
+        ul {
+            margin: 8px 0 16px 24px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .highlight {
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin: 20px 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0;
+            color: #b0b0c0;
+        }
+
+        .highlight strong {
+            color: #818cf8;
+        }
+
+        a {
+            color: #818cf8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 12px;
+            color: #4b4b5b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="icons/icon128.png" alt="Cookie Reject mascot">
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">Cookie Reject — Chrome Extension</p>
+            <p class="date">Effective Date: February 27, 2026</p>
+        </div>
+
+        <div class="highlight">
+            <p><strong>TL;DR:</strong> Cookie Reject collects zero data. No personal information, no browsing history,
+                no analytics, no tracking. Everything runs locally in your browser.</p>
+        </div>
+
+        <h2>1. Overview</h2>
+        <p>Cookie Reject ("the Extension") is a browser extension that automatically rejects cookie consent banners on
+            websites. This Privacy Policy explains how the Extension handles your data.</p>
+
+        <h2>2. Data Collection</h2>
+        <p><strong>We do not collect any data whatsoever.</strong> The Extension:</p>
+        <ul>
+            <li>Does <strong>not</strong> collect personal information</li>
+            <li>Does <strong>not</strong> track your browsing activity</li>
+            <li>Does <strong>not</strong> store any website data</li>
+            <li>Does <strong>not</strong> use analytics or telemetry</li>
+            <li>Does <strong>not</strong> send any data to external servers</li>
+            <li>Does <strong>not</strong> use cookies itself</li>
+        </ul>
+
+        <h2>3. How the Extension Works</h2>
+        <p>The Extension operates entirely within your browser. It:</p>
+        <ul>
+            <li>Injects CSS styles to hide known cookie consent banner elements</li>
+            <li>Runs JavaScript to detect and click "Reject" or "Decline" buttons on cookie banners</li>
+            <li>Calls Consent Management Platform (CMP) APIs to set consent to "reject"</li>
+            <li>Stores your enable/disable preference using <code>chrome.storage.local</code> (local to your device
+                only)</li>
+        </ul>
+        <p>All processing happens locally in your browser. No data ever leaves your device.</p>
+
+        <h2>4. Permissions Explained</h2>
+        <h3><code>activeTab</code></h3>
+        <p>Allows the Extension to interact with the currently active tab when you click the extension icon. Used to
+            reload the page when toggling the extension on/off.</p>
+
+        <h3><code>storage</code></h3>
+        <p>Stores your enable/disable preference locally on your device. This data is never transmitted anywhere.</p>
+
+        <h3><code>scripting</code></h3>
+        <p>Allows the Extension to inject scripts that detect and dismiss cookie banners on web pages.</p>
+
+        <h3><code>host_permissions: &lt;all_urls&gt;</code></h3>
+        <p>Required so the Extension can run on any website to detect and reject cookie banners. The Extension does not
+            read, store, or transmit any page content.</p>
+
+        <h2>5. Third-Party Services</h2>
+        <p>The Extension does not use any third-party services, APIs, libraries, or analytics tools.</p>
+
+        <h2>6. Data Storage</h2>
+        <p>The only data stored is your enable/disable toggle preference, saved locally on your device via
+            <code>chrome.storage.local</code>. This data:</p>
+        <ul>
+            <li>Remains on your device</li>
+            <li>Is never synced to the cloud</li>
+            <li>Is deleted when you uninstall the Extension</li>
+        </ul>
+
+        <h2>7. Children's Privacy</h2>
+        <p>The Extension does not knowingly collect any data from anyone, including children under the age of 13.</p>
+
+        <h2>8. Changes to This Policy</h2>
+        <p>If this Privacy Policy is updated, the changes will be reflected in the Extension's listing on the Chrome Web
+            Store and on this page. The "Effective Date" at the top will be updated accordingly.</p>
+
+        <h2>9. Contact</h2>
+        <p>If you have any questions about this Privacy Policy, please open an issue on our <a
+                href="https://github.com/lahrasab/cookie-reject" target="_blank">GitHub repository</a>.</p>
+
+        <div class="footer">
+            <p>© 2026 Cookie Reject. Open source under the MIT License.</p>
+        </div>
+    </div>
+</body>
+
+</html>

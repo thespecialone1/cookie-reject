@@ -1,0 +1,209 @@
+/*
+ * Cookie Reject — CSS Banner Hider
+ * Injected at document_start to prevent cookie banners from ever appearing.
+ * These selectors cover the most common Consent Management Platforms.
+ */
+
+/* ===== OneTrust ===== */
+#onetrust-consent-sdk,
+#onetrust-banner-sdk,
+.onetrust-pc-dark-filter,
+.optanon-alert-box-wrapper,
+#optanon-popup-bg,
+#optanon-popup-wrapper {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== Cookiebot ===== */
+#CybotCookiebotDialog,
+#CybotCookiebotDialogBodyUnderlay,
+.CybotCookiebotDialogActive,
+#CookiebotWidget {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== Quantcast / TCF / CMP ===== */
+#qc-cmp2-container,
+#qc-cmp2-main,
+.qc-cmp2-consent-info,
+#qcCmpUi,
+.fc-consent-root,
+.fc-dialog-overlay,
+#fc-dialog-container {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== TrustArc / TrustE ===== */
+#truste-consent-track,
+.truste_box_overlay,
+.truste_overlay,
+#trustarc-banner-container,
+#consent_blackbar {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== Didomi ===== */
+#didomi-host,
+#didomi-popup,
+.didomi-popup-container,
+.didomi-notice-banner {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== Osano ===== */
+.osano-cm-window,
+.osano-cm-dialog,
+.osano-cm-overlay {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== Iubenda ===== */
+#iubenda-cs-banner,
+.iubenda-cs-container,
+.iubenda-cs-overlay {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== Cookie Notice / Cookie Law Info ===== */
+#cookie-notice,
+#cookie-law-info-bar,
+#cookie-law-info-again,
+.cli-modal-container,
+.cli-modal-backdrop {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== GDPR Cookie Compliance / Generic class patterns ===== */
+.cc-window,
+.cc-banner,
+.cc-revoke,
+.cc_container,
+#cc-main,
+.cookie-consent,
+.cookie-consent-banner,
+.cookie-banner,
+.cookie-popup,
+.cookie-overlay,
+.cookie-modal,
+.cookie-notice,
+.cookie-notification,
+.cookie-alert,
+.cookie-warning,
+.cookie-message,
+.cookie-disclaimer,
+.cookie-bar,
+.cookie-wall,
+.cookies-banner,
+.cookies-popup,
+.cookies-overlay,
+.cookies-modal,
+.cookiebanner,
+.cookieconsent,
+.consent-banner,
+.consent-popup,
+.consent-overlay,
+.consent-modal,
+.consent-dialog,
+.consent-notice,
+.consent-bar,
+.gdpr-banner,
+.gdpr-popup,
+.gdpr-overlay,
+.gdpr-modal,
+.gdpr-notice,
+.gdpr-bar,
+.privacy-banner,
+.privacy-popup,
+.privacy-bar,
+.privacy-notice,
+#cookie-consent,
+#cookie-banner,
+#cookie-popup,
+#cookie-notice,
+#cookie-bar,
+#cookie-modal,
+#cookie-overlay,
+#cookies-banner,
+#cookies-popup,
+#consent-banner,
+#consent-popup,
+#consent-modal,
+#consent-bar,
+#gdpr-banner,
+#gdpr-popup,
+#gdpr-bar,
+#privacy-banner,
+#privacy-popup {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== Overlay / Backdrop layers often used with cookie modals ===== */
+.cookie-consent-backdrop,
+.consent-backdrop,
+.cookie-overlay-bg,
+.modal-backdrop.cookie,
+.cmp-modal-overlay {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== Fix body scroll locks that cookie banners sometimes add ===== */
+body.cookie-modal-open,
+body.cookie-consent-active,
+body.has-cookie-banner,
+body.no-scroll,
+body.modal-open,
+html.cookie-modal-open,
+html.has-cookie-banner {
+  overflow: auto !important;
+  position: static !important;
+}
