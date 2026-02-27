@@ -80,4 +80,4 @@ MIT License — free to use, modify, and distribute.
 
 ## 🤝 Contributing
 
-Issues and pull requests are welcome! If you find a cookie banner that Cookie Reject doesn't handle, please [open an issue](https://github.com/lahrasab/cookie-reject/issues).
+Issues and pull requests are welcome! If you find a cookie banner that Cookie Reject doesn't handle, please [open an issue](https://github.com/thespecialone1/cookie-reject/issues).
