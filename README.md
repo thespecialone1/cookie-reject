@@ -5,7 +5,7 @@
 No more clicking "Reject All" or "Accept Essential Only" on every site you visit. Cookie Reject handles it for you, instantly and silently.
 
 <p align="center">
-  <img src="store-assets/mascot.png" alt="Cookie Reject Mascot" width="200">
+  <img src="https://raw.githubusercontent.com/thespecialone1/cookie-reject/main/store-assets/mascot.png" alt="Cookie Reject Mascot" width="200">
 </p>
 
 ## ✨ Features
@@ -27,7 +27,7 @@ No more clicking "Reject All" or "Accept Essential Only" on every site you visit
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/lahrasab/cookie-reject.git
+   git clone https://github.com/thespecialone1/cookie-reject.git
    ```
 2. Open Chrome → navigate to `chrome://extensions`
 3. Enable **Developer mode** (top-right toggle)
