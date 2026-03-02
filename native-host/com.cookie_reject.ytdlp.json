@@ -1,0 +1,9 @@
+{
+    "name": "com.cookie_reject.ytdlp",
+    "description": "Cookie Reject yt-dlp Downloader Bridge",
+    "path": "ytdlp_host.sh",
+    "type": "stdio",
+    "allowed_origins": [
+        "chrome-extension://eocpfgefaofknbhnbfnjigdnmlgohkdh/"
+    ]
+}

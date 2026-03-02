@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options - Cookie Reject</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="brand">
+            <img src="../../assets/icons/icon48.png" alt="Logo" class="brand-logo">
+            <div class="brand-text">Cookie Reject</div>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item active">Settings</li>
+            <li class="nav-item">Account</li>
+            <li class="nav-item">Premium <span class="badge">⚡️</span></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="header-msg">
+            <p>Configure your settings for the Cookie Reject extension. Stay tuned for further updates. Beta settings
+                may change in the future.</p>
+        </div>
+
+        <!-- Capture Section -->
+        <section class="settings-section">
+            <h2 class="section-title">Capture</h2>
+
+            <div class="setting-row">
+                <div class="setting-label">
+                    <span class="setting-name">Image format:</span>
+                </div>
+                <div class="setting-control">
+                    <select id="imageFormat" class="select-input">
+                        <option value="png">png</option>
+                        <option value="jpg">jpg</option>
+                    </select>
+                    <div class="setting-desc">PNG is lossless and should match exactly what is seen on the screen, but
+                        will usually have larger file sizes than JPG, which uses compression.</div>
+                </div>
+            </div>
+
+            <div class="setting-row">
+                <div class="setting-label">
+                    <span class="setting-name">Paper size:</span>
+                </div>
+                <div class="setting-control">
+                    <select id="paperSize" class="select-input">
+                        <option value="letter">US letter portrait</option>
+                        <option value="a4">A4 portrait</option>
+                    </select>
+                    <div class="setting-desc">Specify the format size of PDFs for when exporting to PDF.</div>
+                </div>
+            </div>
+
+            <div class="setting-row disabled-premium">
+                <div class="setting-label">
+                    <span class="setting-name">Smart page splitting (Premium) <span
+                            class="premium-icon">⚡️</span></span>
+                </div>
+                <div class="setting-control">
+                    <label class="checkbox-container">
+                        <input type="checkbox" disabled>
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="setting-desc">Perform extra checks when splitting a PDF across multiple pages to try to
+                        prevent it from cutting lines of text in half. Otherwise, the screenshot is split at the paper
+                        size height regardless of its content. <span class="help-icon"
+                            title="Prevent lines of text from getting split in half during export-to-PDF with smart page splitting. Upgrade your account or login">?</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setting-row disabled-premium">
+                <div class="setting-label">
+                    <span class="setting-name">Add URL and date/time (Premium) <span
+                            class="premium-icon">⚡️</span></span>
+                </div>
+                <div class="setting-control">
+                    <label class="checkbox-container">
+                        <input type="checkbox" disabled>
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="setting-desc">Add your screenshot’s URL and capture date/time when exporting to PDF from
+                        the main view screenshot page. You can add URL and capture date in the Editor from the “More”
+                        menu. <span class="help-icon" title="Premium Feature">?</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="settings-section">
+            <h2 class="section-title">Download</h2>
+
+            <div class="setting-row">
+                <div class="setting-label">
+                    <span class="setting-name">Directory:</span>
+                </div>
+                <div class="setting-control">
+                    <input type="text" id="downloadDirectory" class="text-input" placeholder="e.g. screencaptures">
+                    <div class="setting-desc">Specify a directory underneath your downloads directory to save your
+                        screenshots, such as “screencaptures”. Defaults to the downloads directory if blank. (Please
+                        limit it to letters, numbers, dashes, underscores, and slashes—invalid characters will
+                        automatically be removed).</div>
+                </div>
+            </div>
+
+            <div class="setting-row">
+                <div class="setting-label">
+                    <span class="setting-name">Save as</span>
+                </div>
+                <div class="setting-control">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="saveAs">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="setting-desc">
+                        Automatically show a “save as” dialog when downloading your screenshots. If the “Ask where to
+                        save each file before downloading” option is enabled in your browser’s settings, then that takes
+                        priority.<br><br>
+                        <span class="warning-text">There are issues with “save as” for auto-download and when
+                            downloading multiple files, so it is disabled in those scenarios.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setting-row">
+                <div class="setting-label">
+                    <span class="setting-name">Auto-download files</span>
+                </div>
+                <div class="setting-control">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="autoDownload">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="setting-desc">
+                        Automatically download your screenshot as an image instead of opening it in a new window. This
+                        means the extension capture tab will not open. You can return back here by right-clicking on the
+                        extension and selecting "Options".<br><br>
+                        <span class="warning-text">This feature is incompatible with the “Ask where to save each file
+                            before downloading” browser setting and can result in errors with the save dialog if that is
+                            enabled too.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setting-row">
+                <div class="setting-label">
+                    <span class="setting-name">Fit copies to Google Docs limits</span>
+                </div>
+                <div class="setting-control">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="fitToGoogleDocs" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="setting-desc">When copying a screenshot to your clipboard, auto-resize it if it exceeds
+                        the Google Docs copy-paste limit (25,000,000 pixels). You may still experience issues pasting
+                        very large images into other applications, for example Google Docs sometimes truncates the image
+                        unless you resize it much smaller.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Permissions Section -->
+        <details class="permissions-details">
+            <summary class="section-title toggle-summary">Permissions</summary>
+            <div class="permissions-content">
+                <p class="setting-desc" style="margin-bottom: 20px;">Any optional permissions that were previously
+                    granted will appear checked here. You can revoke them at any time. If they are needed again in the
+                    future, they will be re-requested.</p>
+
+                <div class="setting-row">
+                    <div class="setting-label">
+                        <span class="setting-name">Downloads permission</span>
+                    </div>
+                    <div class="setting-control">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="permDownloads">
+                            <span class="checkmark"></span>
+                        </label>
+                        <div class="setting-desc">This permission is required for the download buttons and the
+                            auto-download feature.</div>
+                    </div>
+                </div>
+
+                <div class="setting-row">
+                    <div class="setting-label">
+                        <span class="setting-name">iFrame permission</span>
+                    </div>
+                    <div class="setting-control">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="permIframe">
+                            <span class="checkmark"></span>
+                        </label>
+                        <div class="setting-desc">This permission is required in order to scroll the inner contents of
+                            iframes or framesets.</div>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+    </div>
+
+    <script src="options.js"></script>
+</body>
+
+</html>

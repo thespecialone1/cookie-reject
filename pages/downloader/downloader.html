@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Downloader — Cookie Reject</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/global.css">
+    <link rel="stylesheet" href="downloader.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-area">
+                <img src="../../assets/icons/icon48.png" alt="Logo" class="logo">
+                <div>
+                    <h1>Universal Downloader</h1>
+                    <p class="subtitle">Powered by yt-dlp</p>
+                </div>
+            </div>
+            <div id="connection-status" class="status-indicator">
+                <div class="status-dot"></div>
+                <span>Checking connection...</span>
+            </div>
+        </header>
+
+        <!-- Setup Guide Overlay (Hidden by default) -->
+        <div id="setup-guide" class="setup-guide" style="display: none;">
+            <div class="card setup-card">
+                <h2>⚠️ Native Engine Required</h2>
+                <p>To safely download videos without limits, Cookie Reject needs to connect to the yt-dlp engine
+                    embedded on your Mac.</p>
+
+                <div class="setup-steps">
+                    <p><strong>Step 1:</strong> Copy your Extension ID:</p>
+                    <div class="code-wrapper">
+                        <code id="ext-id-display">Loading...</code>
+                        <button id="btn-copy-id" class="btn secondary-btn"
+                            style="padding: 6px 12px; font-size: 12px;">Copy</button>
+                    </div>
+
+                    <p><strong>Step 2:</strong> Open your Mac Terminal, go to the extension folder, and run this
+                        installer:</p>
+                    <code>./native-host/install_mac.sh</code>
+
+                    <p style="margin-top: 10px; color: #a8c7fa; font-weight: 500;">
+                        <em>(When it asks for your ID, press <kbd>⌘+V</kbd> to paste what you just copied!)</em>
+                    </p>
+                </div>
+
+                <p class="setup-footer">Once the script finishes, simply refresh this page!</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Configuration Section -->
+            <section class="card config-section">
+                <div class="input-group">
+                    <label for="url-input">Media URL</label>
+                    <div class="url-input-wrapper">
+                        <input type="url" id="url-input" placeholder="https://www.youtube.com/watch?v=..."
+                            autocomplete="off" spellcheck="false">
+                        <button id="btn-paste" class="icon-btn" title="Paste from clipboard">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Base Format</label>
+                    <div class="radio-group" id="format-group">
+                        <label class="radio-label">
+                            <input type="radio" name="base_fmt" value="-f bestvideo+bestaudio --merge-output-format mp4"
+                                checked>
+                            <span>Best Quality (MP4)</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="base_fmt" value="-f 136+140 --merge-output-format mp4">
+                            <span>720p (MP4)</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="base_fmt" value="-x --audio-format mp3 --audio-quality 0">
+                            <span>Extract MP3</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="base_fmt" value="-x --audio-format m4a">
+                            <span>Extract M4A</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Additional Flags</label>
+                    <div class="checkbox-group" id="flags-group">
+                        <label class="check-label" title="Download & embed English subtitles">
+                            <input type="checkbox" value="--write-auto-sub --embed-subs --sub-lang en">
+                            <span>Auto Subs (EN)</span>
+                        </label>
+                        <label class="check-label" title="Embed video thumbnail into file">
+                            <input type="checkbox" value="--embed-thumbnail">
+                            <span>Embed Thumbnail</span>
+                        </label>
+                        <label class="check-label" title="Write metadata to file">
+                            <input type="checkbox" value="--add-metadata">
+                            <span>Add Metadata</span>
+                        </label>
+                        <label class="check-label" title="Ensure filenames are clean of special chars">
+                            <input type="checkbox" value="--restrict-filenames">
+                            <span>Clean Filenames</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Time Interval (Optional)</label>
+                    <div style="display: flex; gap: 12px; align-items: center;">
+                        <input type="text" id="start-time" placeholder="Start (e.g. 00:00)" spellcheck="false"
+                            autocomplete="off" style="flex: 1;">
+                        <span style="color: var(--text-muted); font-weight: 500;">to</span>
+                        <input type="text" id="end-time" placeholder="End (e.g. 01:30)" spellcheck="false"
+                            autocomplete="off" style="flex: 1;">
+                    </div>
+                    <div id="interval-error"
+                        style="color: var(--accent-red); font-size: 12px; margin-top: 6px; display: none;">Invalid
+                        interval: End time must be strictly after start time.</div>
+                </div>
+
+                <div class="input-group">
+                    <label for="command-input">Command Flags (yt-dlp)</label>
+                    <div class="cmd-input-wrapper">
+                        <span class="cmd-prefix">yt-dlp</span>
+                        <input type="text" id="command-input" value="-f bestvideo+bestaudio --merge-output-format mp4"
+                            spellcheck="false" autocomplete="off">
+                    </div>
+                </div>
+
+                <button id="btn-download" class="btn primary-btn" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Start Download
+                </button>
+            </section>
+
+            <!-- Console / Progress Area -->
+            <section class="card progress-section">
+                <h2>Active Tasks</h2>
+                <div id="tasks-container" class="tasks-container">
+                    <div class="empty-state">No active downloads.</div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="downloader.js"></script>
+</body>
+
+</html>

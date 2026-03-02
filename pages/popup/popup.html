@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Reject</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="header-content">
+      <img src="../../assets/icons/icon48.png" alt="Cookie Reject" class="header-icon">
+      <div class="header-text">
+        <h1>Cookie Reject</h1>
+        <p id="status-text">Browsing, simplified.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Global Control -->
+  <div class="segmented-control" id="mode-control">
+    <label class="segment" data-value="REJECT">
+      <input type="radio" name="mode" value="REJECT">
+      <span>Reject</span>
+    </label>
+    <label class="segment" data-value="PAUSED">
+      <input type="radio" name="mode" value="PAUSED">
+      <span>Pause</span>
+    </label>
+    <label class="segment" data-value="ACCEPT">
+      <input type="radio" name="mode" value="ACCEPT">
+      <span>Accept</span>
+    </label>
+    <div class="selection-indicator"></div>
+  </div>
+
+  <!-- Contextual Site Control -->
+  <div class="domain-section">
+    <div class="domain-info">
+      <div class="domain-title">Block banners on this site</div>
+      <div class="domain-url" id="current-domain">...</div>
+    </div>
+    <label class="toggle-switch">
+      <input type="checkbox" id="whitelist-toggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <!-- Feature Toggles — Compact Grid -->
+  <div class="features-divider">Shields</div>
+
+  <div class="feature-grid">
+    <div class="feature-chip">
+      <label class="chip-label" data-tip="Block newsletter popups">
+        <input type="checkbox" id="feature-newsletters" checked>
+        <span class="chip-body">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="M22 7l-10 7L2 7" />
+          </svg>
+          Newsletters
+        </span>
+      </label>
+    </div>
+    <div class="feature-chip">
+      <label class="chip-label" data-tip="Block notification prompts">
+        <input type="checkbox" id="feature-notifications" checked>
+        <span class="chip-body">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 01-3.46 0" />
+          </svg>
+          Notifications
+        </span>
+      </label>
+    </div>
+    <div class="feature-chip">
+      <label class="chip-label" data-tip="Stop auto-playing videos">
+        <input type="checkbox" id="feature-autoplay" checked>
+        <span class="chip-body">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="10" y1="15" x2="10" y2="9" />
+            <line x1="14" y1="15" x2="14" y2="9" />
+          </svg>
+          Auto-play
+        </span>
+      </label>
+    </div>
+    <div class="feature-chip">
+      <label class="chip-label" data-tip="Hide chat widgets & floating bars">
+        <input type="checkbox" id="feature-sticky" checked>
+        <span class="chip-body">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+          </svg>
+          Widgets
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Tools -->
+  <div class="features-divider">Tools</div>
+
+  <div class="tools-row">
+    <button class="tool-btn" id="btn-screenshot-visible" data-tip="Capture visible area">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" />
+        <circle cx="12" cy="13" r="4" />
+      </svg>
+      <span>Visible</span>
+    </button>
+    <button class="tool-btn" id="btn-screenshot-full" data-tip="Capture full page">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="2" />
+        <line x1="2" y1="8" x2="22" y2="8" />
+        <line x1="2" y1="14" x2="22" y2="14" />
+      </svg>
+      <span>Full Page</span>
+    </button>
+    <button class="tool-btn" id="btn-pick-element" data-tip="Smart Element Tools">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 4V2"></path>
+        <path d="M15 16v-2"></path>
+        <path d="M8 9h2"></path>
+        <path d="M20 9h2"></path>
+        <path d="M17.8 11.8L19 13"></path>
+        <path d="M15 9h.01"></path>
+        <path d="M17.8 6.2L19 5"></path>
+        <path d="M3 21l9-9"></path>
+        <path d="M12.2 6.2L11 5"></path>
+      </svg>
+      <span>Wand</span>
+    </button>
+    <button class="tool-btn" id="btn-open-downloader" data-tip="Universal Downloader">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      <span>yt-dlp</span>
+    </button>
+  </div>
+
+  <div id="hidden-elements-list" class="hidden-elements-list" style="display: none;"></div>
+
+  <!-- Stats -->
+  <div class="stats-section">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a8c7fa" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    </svg>
+    <span id="stats-blocked">0 cookies blocked forever</span>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <a href="#" id="report-link">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;">
+        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+        <line x1="4" y1="22" x2="4" y2="15" />
+      </svg>
+      Report an issue
+    </a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

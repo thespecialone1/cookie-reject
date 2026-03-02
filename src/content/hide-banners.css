@@ -196,6 +196,146 @@
   overflow: hidden !important;
 }
 
+/* ===== Newsletter / Email Popups ===== */
+[class*="newsletter-popup"],
+[class*="newsletter-modal"],
+[class*="newsletter-overlay"],
+[class*="newsletter-banner"],
+[class*="subscribe-popup"],
+[class*="subscribe-modal"],
+[class*="subscribe-overlay"],
+[class*="signup-modal"],
+[class*="signup-popup"],
+[class*="email-popup"],
+[class*="email-modal"],
+[class*="email-overlay"],
+[class*="exit-intent"],
+[class*="exit-popup"],
+[class*="lead-capture"],
+[class*="optin-popup"],
+[class*="optin-modal"],
+[class*="mailing-list-popup"],
+[class*="mailchimp-popup"],
+[id*="newsletter-popup"],
+[id*="newsletter-modal"],
+[id*="subscribe-popup"],
+[id*="subscribe-modal"],
+[id*="email-popup"],
+[id*="exit-intent"],
+[id*="exit-popup"],
+[id*="optin-popup"],
+[id*="mailchimp-popup"],
+[id*="mc-popup"],
+[id*="klaviyo-popup"],
+.klaviyo-popup,
+.mc-modal,
+.mc-closeModal,
+.ml-form-embedContainer[style*="z-index"],
+.sumo-overlay,
+.sumome-overlay {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== Notification Prompts ===== */
+[class*="notification-prompt"],
+[class*="push-notification"],
+[class*="web-push"],
+[class*="push-prompt"],
+[class*="bell-prompt"],
+[class*="push-subscribe"],
+[class*="push-modal"],
+[class*="notification-modal"],
+[class*="browser-push"],
+[class*="onesignal"],
+[id*="push-prompt"],
+[id*="notification-prompt"],
+[id*="web-push"],
+[id*="onesignal"],
+#onesignal-slidedown-container,
+#onesignal-bell-container,
+.onesignal-customlink-container,
+.webpushr-prompt,
+.pushcrew-chrome-style-notification {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== Paywall / Subscription Walls ===== */
+[class*="paywall"],
+[class*="subscribe-wall"],
+[class*="regwall"],
+[class*="meter-wall"],
+[class*="subscription-wall"],
+[class*="barrier-page"],
+[class*="gate-overlay"],
+[class*="access-wall"],
+[class*="premium-wall"],
+[class*="article-gate"],
+[id*="paywall"],
+[id*="regwall"],
+[id*="subscribe-wall"],
+[id*="premium-gate"],
+[id*="access-gate"],
+[data-testid*="paywall"],
+[data-testid*="regwall"],
+.tp-modal,
+.tp-backdrop,
+.tp-iframe-wrapper,
+.piano-offer,
+.met-flyover,
+.met-slot {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* ===== Chat Widgets & Sticky Elements ===== */
+[class*="intercom-"],
+#intercom-container,
+#intercom-frame,
+[class*="drift-"],
+#drift-widget,
+#drift-frame-controller,
+[class*="tawk-"],
+#tawkchat-container,
+#tawk-bubble-container,
+[class*="zendesk"],
+#launcher.zendesk,
+[class*="crisp-client"],
+[class*="freshdesk"],
+#freshworks-container,
+.fb_dialog,
+.fb-customerchat,
+[class*="livechat"],
+[id*="livechat"],
+[class*="olark"],
+#olark-container,
+[class*="tidio"],
+#tidio-chat,
+[class*="smartsupp"],
+#smartsupp-widget-container,
+[class*="hubspot-messages"],
+#hubspot-messages-iframe-container {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
 /* ===== Fix body scroll locks that cookie banners sometimes add ===== */
 body.cookie-modal-open,
 body.cookie-consent-active,

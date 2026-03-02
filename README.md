@@ -63,7 +63,8 @@ cookie-reject/
 ├── background.js          # State management service worker
 ├── popup.html/css/js      # Toggle popup UI
 ├── privacy-policy.html    # Privacy policy (required for Web Store)
-├── icons/                 # Extension icons (16, 48, 128px)
+├── assets/
+│   ├── icons/             # Extension icons (16, 48, 128px)
 ├── store-assets/          # Chrome Web Store listing assets
 │   ├── mascot.png
 │   └── promo-tile.png
