@@ -64,6 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
             notificationToggle.checked = result.blockNotifications !== undefined ? result.blockNotifications : true;
             autoplayToggle.checked = result.blockAutoplay !== undefined ? result.blockAutoplay : true;
             stickyToggle.checked = result.removeStickyElements !== undefined ? result.removeStickyElements : true;
+
+            const lyricsToggle = document.getElementById('feature-lyrics');
+            if (lyricsToggle) {
+                lyricsToggle.checked = result.showLyrics !== undefined ? result.showLyrics : true;
+            }
         });
 
         // Load hidden elements for current domain
@@ -127,6 +132,22 @@ document.addEventListener('DOMContentLoaded', () => {
     stickyToggle.addEventListener('change', (e) => {
         chrome.storage.local.set({ removeStickyElements: e.target.checked }, reloadCurrentTab);
     });
+
+    // Handle Lyrics Toggle
+    const lyricsToggle = document.getElementById('feature-lyrics');
+    if (lyricsToggle) {
+        lyricsToggle.addEventListener('change', (e) => {
+            const isEnabled = e.target.checked;
+            chrome.storage.local.set({ showLyrics: isEnabled }, () => {
+                // Send a message to dynamically spawn/kill the lyrics box without a complete tab reload
+                chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+                    if (tabs[0] && tabs[0].url && tabs[0].url.includes('youtube.com')) {
+                        chrome.tabs.sendMessage(tabs[0].id, { type: 'toggle', feature: 'lyrics', state: isEnabled });
+                    }
+                });
+            });
+        });
+    }
 
     // Handle Options Button (only if it exists)
     const btnOptions = document.getElementById('btn-options');

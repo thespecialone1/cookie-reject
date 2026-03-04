@@ -14,8 +14,10 @@ chrome.runtime.onInstalled.addListener((details) => {
             blockNewsletters: true,
             blockNotifications: true,
             blockAutoplay: true,
-            removeStickyElements: true
+            removeStickyElements: true,
+            showLyrics: true
         });
+        console.log("[Cookie Reject] Default settings initialized.");
     } else {
         // Migrate from v1 if needed
         chrome.storage.local.get(['enabled', 'mode'], (result) => {
@@ -139,6 +141,26 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             nativeHost.postMessage({ action: 'open_downloads' });
         }
         sendResponse({ success: true });
+    } else if (message.type === 'fetchLyrics') {
+        const query = encodeURIComponent(`${message.title} ${message.artist}`);
+        fetch(`https://lrclib.net/api/search?q=${query}`)
+            .then(res => {
+                if (!res.ok) throw new Error('LRCLIB API HTTP Error');
+                return res.json();
+            })
+            .then(data => {
+                const bestMatch = data.find(song => song.syncedLyrics) || data[0];
+                if (bestMatch && bestMatch.syncedLyrics) {
+                    sendResponse({ lyrics: bestMatch.syncedLyrics });
+                } else {
+                    sendResponse({ error: 'No synced lyrics found' });
+                }
+            })
+            .catch(err => {
+                console.error('[Cookie Reject] LRCLIB Fetch Error:', err);
+                sendResponse({ error: err.toString() });
+            });
+        return true; // Keep message channel open for async fetch
     }
     return true;
 });

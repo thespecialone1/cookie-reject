@@ -163,6 +163,46 @@ body {
     text-overflow: ellipsis;
 }
 
+/* Feature Toggle Card */
+.feature-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #232326;
+    border: 1px solid #323236;
+    padding: 12px 14px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.feature-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.feature-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.feature-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.feature-desc {
+    font-size: 11px;
+    color: #9aa0a6;
+}
+
 /* Toggle Switch */
 .toggle-switch {
     position: relative;

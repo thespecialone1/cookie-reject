@@ -31,6 +31,16 @@
             ],
             "run_at": "document_start",
             "all_frames": true
+        },
+        {
+            "matches": [
+                "*://*.youtube.com/*"
+            ],
+            "js": [
+                "src/content/lyrics.js"
+            ],
+            "run_at": "document_end",
+            "all_frames": false
         }
     ],
     "action": {

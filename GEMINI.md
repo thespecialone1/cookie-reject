@@ -63,13 +63,17 @@ Style the `.feature-section` identically to `.domain-section` with the same back
 | 12 | Stats Dashboard | T4 | ⬜ Not Started |
 | 13 | Site Privacy Score | T4 | ⬜ Not Started |
 | 14 | Export/Import Settings | T4 | ⬜ Not Started |
-| 15 | Smart Element Tools (Magic Wand) | T4 | ⬜ Not Started |
+| 15 | Smart Element Tools (Magic Wand) | T4 | 🔨 In Progress |
+| 16 | Universal Downloader (yt-dlp) | T4 | ✅ Done |
+| 17 | Auto-Synced YouTube Lyrics | T4 | ⬜ Not Started |
 
 **Legend:** ⬜ Not Started · 🔨 In Progress · ✅ Done
 
 ---
 
 *Note: Phase 15 is extensively detailed in `ELEMENT_TOOLS_SPEC.md`, replacing the basic Element Picker from Phase 9.*
+*Note: Phase 16 is extensively detailed in `YTDLP_SPEC.md`.*
+*Note: Phase 17 is extensively detailed in `LYRICS_SPEC.md`.*
 ---
 
 ## Phase 1 — Newsletter / Popup Blocker
